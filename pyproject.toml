@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ytextract"
+version = "0.1.0"
+description = "Download and transcribe YouTube channel audio locally."
+requires-python = ">=3.8"
+dependencies = [
+    "yt-dlp>=2024.1.0",
+    "openai-whisper>=2024.0.0",
+]
+
+[project.scripts]
+ytextract = "ytextract.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

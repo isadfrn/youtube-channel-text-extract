@@ -1,0 +1,67 @@
+appId: com.ytextract.app
+productName: ytextract
+copyright: "Copyright © 2026 Isabella Nunes"
+
+directories:
+  buildResources: build   # place icon.ico here (optional)
+  output: dist
+
+# Files to include from the electron-vite output
+files:
+  - out/**/*
+  - package.json
+
+# Bundle the Python source so the app works without `pip install -e .`
+# In packaged mode, these land at process.resourcesPath/ytextract/
+# so `python -m ytextract.cli` works with PYTHONPATH=process.resourcesPath
+extraResources:
+  - from: ../src/ytextract
+    to: ytextract
+    filter:
+      - "**/*.py"
+      - "!**/__pycache__/**"
+      - "!**/*.pyc"
+
+# ── Windows ───────────────────────────────────────────────────────────────────
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  # Runs as the current user — no admin elevation required
+  requestedExecutionLevel: user
+  icon: build/icon.ico
+
+nsis:
+  # Show a wizard instead of a single-click install
+  oneClick: false
+  # Install per-user by default (no admin rights needed)
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: ytextract
+  # Show the MIT license in the installer
+  license: ../LICENSE
+
+# ── macOS (optional) ─────────────────────────────────────────────────────────
+mac:
+  target:
+    - target: dmg
+      arch:
+        - x64
+        - arm64
+  category: public.app-category.utilities
+  # icon: build/icon.icns
+
+dmg:
+  writeUpdateInfo: false
+
+# ── Linux (optional) ─────────────────────────────────────────────────────────
+linux:
+  target:
+    - target: AppImage
+      arch:
+        - x64
+  category: Utility
+  # icon: build/icon.png

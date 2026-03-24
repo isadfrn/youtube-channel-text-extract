@@ -1,0 +1,26 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Allow the app to scroll vertically but not horizontally */
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Smooth scrolling inside the log panel */
+.log-panel {
+  scroll-behavior: smooth;
+}
+
+/* Ensure monospace text doesn't cause layout issues */
+.log-line {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
