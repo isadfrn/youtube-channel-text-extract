@@ -1,10 +1,10 @@
 # YouTube Channel Text Extract
 
-![ytextract demo](.github/demo.png)
-
 ![Languages used](https://img.shields.io/github/languages/count/isadfrn/youtube-channel-text-extract?style=flat-square)
 ![Repository size](https://img.shields.io/github/repo-size/isadfrn/youtube-channel-text-extract?style=flat-square)
 ![Last commit](https://img.shields.io/github/last-commit/isadfrn/youtube-channel-text-extract?style=flat-square)
+
+![ytextract demo](.github/demo.png)
 
 Download all videos from a YouTube channel as **audio only** (no video), then transcribe them to text locally with **OpenAI Whisper**. The text is ready for Claude, NotebookLM, or any text-based tool.
 
