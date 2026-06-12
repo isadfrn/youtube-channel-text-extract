@@ -1,6 +1,6 @@
 {
   "name": "ytextract",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Download and transcribe YouTube channel audio locally",
   "main": "out/main/index.js",
   "scripts": {
